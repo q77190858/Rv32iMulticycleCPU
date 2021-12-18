@@ -1,0 +1,24 @@
+
+hello.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+80000000 <_start>:
+80000000:	00000517          	auipc	a0,0x0
+80000004:	02050513          	addi	a0,a0,32 # 80000020 <hello_str>
+80000008:	130005b7          	lui	a1,0x13000
+8000000c:	00050603          	lb	a2,0(a0)
+80000010:	00c58023          	sb	a2,0(a1) # 13000000 <_start-0x6d000000>
+80000014:	00150513          	addi	a0,a0,1
+80000018:	00050603          	lb	a2,0(a0)
+8000001c:	fe061ae3          	bnez	a2,80000010 <_start+0x10>
+
+Disassembly of section .rodata:
+
+80000020 <hello_str>:
+80000020:	5f5f 6568 6c6c      	0x6c6c65685f5f
+80000026:	6f77206f          	j	80072f1c <__global_pointer$+0x716e9>
+8000002a:	6c72                	flw	fs8,28(sp)
+8000002c:	2164                	fld	fs1,192(a0)
+8000002e:	5f5f 000a       	0xa5f5f
